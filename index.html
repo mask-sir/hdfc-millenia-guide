@@ -1,0 +1,808 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="HDFC Millennia Debit Card setup guide, PayZapp wallet reloads, cashback rewards and domestic airport lounge access.">
+  <title>HDFC Millennia Debit Card Guide</title>
+
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card: #141e30;
+      --card-light: #1b2940;
+      --text: #f3f6fc;
+      --muted: #a8b5c9;
+      --accent: #76f0b5;
+      --blue: #8bbaff;
+      --border: rgba(255,255,255,.09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(100% - 32px, 850px);
+      margin: auto;
+    }
+
+    .hero {
+      padding: 54px 0 36px;
+      background:
+        radial-gradient(ellipse at top right, #203d54 0%, transparent 55%),
+        linear-gradient(160deg, #111c2e, #0b1120 75%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 12px;
+      border: 1px solid rgba(118,240,181,.25);
+      background: rgba(118,240,181,.08);
+      color: var(--accent);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(30px, 7vw, 49px);
+      line-height: 1.16;
+      letter-spacing: -1.5px;
+      margin: 22px 0 16px;
+    }
+
+    h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 600px;
+      font-size: 16px;
+    }
+
+    .hero-note {
+      margin-top: 24px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    main {
+      padding: 30px 0 55px;
+    }
+
+    .section {
+      margin-bottom: 32px;
+      scroll-margin-top: 20px;
+    }
+
+    .section-title {
+      font-size: 23px;
+      letter-spacing: -.5px;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: -8px;
+      margin-bottom: 18px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 19px;
+      min-width: 0;
+    }
+
+    .stat-icon {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .stat-value {
+      display: block;
+      font-size: clamp(20px, 5vw, 27px);
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 6px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      margin-bottom: 14px;
+    }
+
+    .step-heading {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      margin-bottom: 14px;
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      width: 39px;
+      height: 39px;
+      border-radius: 12px;
+      background: rgba(118,240,181,.11);
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    h3 {
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    .step-heading p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    ul, ol {
+      padding-left: 22px;
+    }
+
+    li {
+      padding-left: 3px;
+      margin: 7px 0;
+    }
+
+    li::marker {
+      color: var(--accent);
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .fee {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fee:last-child {
+      border-bottom: 0;
+    }
+
+    .fee span:first-child {
+      color: var(--muted);
+    }
+
+    .fee strong {
+      text-align: right;
+    }
+
+    .callout {
+      background: rgba(139,186,255,.07);
+      border: 1px solid rgba(139,186,255,.2);
+      padding: 15px;
+      border-radius: 12px;
+      font-size: 13px;
+      margin-top: 16px;
+    }
+
+    .warning {
+      background: rgba(255,190,92,.07);
+      border: 1px solid rgba(255,190,92,.2);
+      border-radius: 12px;
+      padding: 16px;
+      color: #f5d9a6;
+      font-size: 13px;
+    }
+
+    .transaction-list {
+      margin: 17px 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .transaction {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 14px;
+      border-radius: 10px;
+      background: var(--card-light);
+    }
+
+    .transaction span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .transaction strong {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .transaction.total {
+      background: rgba(118,240,181,.09);
+      border: 1px solid rgba(118,240,181,.2);
+    }
+
+    .transaction.total strong {
+      color: var(--accent);
+    }
+
+    .calculator {
+      background: linear-gradient(140deg, #172b37, #142235);
+      border: 1px solid rgba(118,240,181,.2);
+      border-radius: 16px;
+      padding: 21px;
+      margin-top: 20px;
+    }
+
+    .calculator label {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .calculator input {
+      width: 100%;
+      min-width: 0;
+      padding: 13px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #0b1120;
+      color: var(--text);
+      font: inherit;
+      outline: none;
+    }
+
+    .calculator input:focus {
+      border-color: var(--accent);
+    }
+
+    .calc-result {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 17px;
+      padding-top: 17px;
+      border-top: 1px solid var(--border);
+    }
+
+    .calc-result strong {
+      color: var(--accent);
+      font-size: 24px;
+    }
+
+    .checklist {
+      list-style: none;
+      padding: 0;
+    }
+
+    .checklist li {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .checklist li:last-child {
+      border-bottom: 0;
+    }
+
+    .checklist li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 900;
+      margin-right: 10px;
+    }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #082017;
+      border-radius: 11px;
+      padding: 12px 17px;
+      font-weight: 800;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    .button:hover {
+      text-decoration: none;
+      opacity: .9;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 27px 0 35px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    footer p {
+      margin: 8px 0;
+    }
+
+    .footer-brand {
+      color: var(--text);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    @media (min-width: 650px) {
+      .hero {
+        padding: 75px 0 48px;
+      }
+
+      main {
+        padding-top: 40px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .stat {
+        padding: 16px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .container {
+        width: calc(100% - 22px);
+      }
+
+      .card {
+        padding: 17px;
+      }
+
+      .stat {
+        padding: 14px;
+      }
+
+      .calc-result {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <span class="tag">💳 Debit Card Guide</span>
+
+      <h1>HDFC Millennia<br><span>Debit Card Guide</span></h1>
+
+      <p>
+        Learn how to set up your card, use PayZapp Wallet,
+        understand cashback rewards, and check domestic airport lounge benefits.
+      </p>
+
+      <div class="hero-note">
+        💡 This guide explains the setup process and potential benefits.
+        Actual rewards and eligibility depend on the bank's applicable terms.
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="section" id="highlights">
+      <h2 class="section-title">✨ Benefits at a Glance</h2>
+      <p class="section-subtitle">A quick overview of the potential benefits.</p>
+
+      <div class="grid">
+        <div class="stat">
+          <div class="stat-icon">💰</div>
+          <span class="stat-value">₹400</span>
+          <div class="stat-label">Potential monthly cashback points</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon">📅</div>
+          <span class="stat-value">₹4,800</span>
+          <div class="stat-label">Potential annual reward value</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon">📊</div>
+          <span class="stat-value">1%</span>
+          <div class="stat-label">On eligible transactions</div>
+        </div>
+
+        <div class="stat">
+          <div class="stat-icon">✈️</div>
+          <span class="stat-value">Lounge</span>
+          <div class="stat-label">Access subject to eligibility</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="upgrade">
+      <h2 class="section-title">🚀 Step 1: Upgrade Your Debit Card</h2>
+
+      <div class="card">
+        <div class="step-heading">
+          <div class="step-number">01</div>
+          <div>
+            <h3>Get the Millennia Debit Card</h3>
+            <p>For existing HDFC Bank account holders</p>
+          </div>
+        </div>
+
+        <ol>
+          <li>Open your HDFC Bank app.</li>
+          <li>Look for the debit card upgrade option.</li>
+          <li>Select Millennia Debit Card, if available.</li>
+          <li>Follow the instructions to complete the request.</li>
+        </ol>
+
+        <div style="margin-top:18px">
+          <div class="fee">
+            <span>Joining fee</span>
+            <strong>₹499 + GST</strong>
+          </div>
+          <div class="fee">
+            <span>Annual fee</span>
+            <strong>₹499 + GST</strong>
+          </div>
+        </div>
+
+        <p class="muted" style="margin-top:12px">
+          Verify the latest fees and upgrade availability with HDFC Bank.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="payzapp">
+      <h2 class="section-title">📲 Step 2: Set Up PayZapp</h2>
+
+      <div class="card">
+        <div class="step-heading">
+          <div class="step-number">02</div>
+          <div>
+            <h3>Prepare Your Wallet</h3>
+            <p>Complete the setup before making any reloads.</p>
+          </div>
+        </div>
+
+        <ol>
+          <li>Download PayZapp from the Play Store.</li>
+          <li>Register or log in to your account.</li>
+          <li>Complete the required wallet KYC.</li>
+          <li>Check your wallet's loading and transfer limits.</li>
+        </ol>
+
+        <a class="button"
+           href="https://www.hdfcbank.com/personal/payments/payzapp"
+           target="_blank"
+           rel="noopener noreferrer">
+          Visit PayZapp ↗
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="cashback">
+      <h2 class="section-title">💰 Step 3: Target ₹400 Monthly Rewards</h2>
+
+      <div class="card">
+        <div class="step-heading">
+          <div class="step-number">03</div>
+          <div>
+            <h3>Use Eligible Wallet Reloads</h3>
+            <p>Based on the 1% reward rate described in this guide.</p>
+          </div>
+        </div>
+
+        <ul>
+          <li>Target total eligible transactions of ₹40,000 per month.</li>
+          <li>You can split the amount across multiple transactions.</li>
+          <li>Eligible transactions may earn reward points up to the monthly cap.</li>
+        </ul>
+
+        <h3 style="margin-top:22px">🧮 Example Transaction Breakdown</h3>
+
+        <div class="transaction-list">
+          <div class="transaction">
+            <span>Transaction 1</span>
+            <strong>₹1,000</strong>
+          </div>
+          <div class="transaction">
+            <span>Transaction 2</span>
+            <strong>₹5,000</strong>
+          </div>
+          <div class="transaction">
+            <span>Transaction 3</span>
+            <strong>₹15,000</strong>
+          </div>
+          <div class="transaction">
+            <span>Transaction 4</span>
+            <strong>₹19,000</strong>
+          </div>
+          <div class="transaction total">
+            <span>Total eligible spending</span>
+            <strong>₹40,000</strong>
+          </div>
+          <div class="transaction total">
+            <span>Potential reward value at 1%</span>
+            <strong>₹400</strong>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>💡 PayZapp wallet:</strong>
+          Check the fee shown before confirming a wallet reload.
+          A zero-fee transaction and cashback eligibility are separate conditions;
+          verify both before proceeding.
+        </div>
+      </div>
+
+      <div class="calculator">
+        <h3 style="margin-bottom:14px">🧮 Cashback Calculator</h3>
+
+        <label for="spend">Enter your eligible monthly spending (₹)</label>
+        <input
+          id="spend"
+          type="number"
+          min="0"
+          max="100000000"
+          step="100"
+          value="40000"
+          inputmode="numeric"
+          placeholder="Example: 40000"
+        >
+
+        <div class="calc-result">
+          <div>
+            <div class="muted">Estimated reward value</div>
+            <strong id="reward">₹400</strong>
+          </div>
+          <div>
+            <div class="muted">Monthly cap used</div>
+            <strong id="cap">100%</strong>
+          </div>
+        </div>
+
+        <p class="muted" style="margin-top:12px">
+          Estimate only: assumes a 1% reward rate and a ₹400 monthly cap.
+          Actual rewards depend on eligible transactions and bank rules.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="lounge">
+      <h2 class="section-title">✈️ Step 4: Airport Lounge Access</h2>
+
+      <div class="card">
+        <div class="step-heading">
+          <div class="step-number">04</div>
+          <div>
+            <h3>Check Your Quarterly Eligibility</h3>
+            <p>Complimentary domestic lounge access, subject to conditions.</p>
+          </div>
+        </div>
+
+        <ul>
+          <li>Check the current quarterly spending requirement.</li>
+          <li>Confirm that your debit card qualifies for the benefit.</li>
+          <li>Check whether a lounge voucher is required.</li>
+          <li>Verify the participating airports and lounges before travelling.</li>
+        </ul>
+
+        <div class="warning" style="margin-top:18px">
+          <strong>⚠️ Important</strong><br>
+          The ₹40,000 monthly spending target for cashback does not, by itself,
+          confirm lounge eligibility. Lounge benefits have separate terms and
+          qualifying conditions. Check the latest HDFC Bank rules before travel.
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="redeem">
+      <h2 class="section-title">🎁 Step 5: Redeem Reward Points</h2>
+
+      <div class="card">
+        <div class="step-heading">
+          <div class="step-number">05</div>
+          <div>
+            <h3>Check Your Rewards</h3>
+            <p>Use the applicable HDFC Bank redemption option.</p>
+          </div>
+        </div>
+
+        <ol>
+          <li>Open the HDFC Bank app or applicable rewards portal.</li>
+          <li>Find the reward points redemption section.</li>
+          <li>Check your available points and redemption options.</li>
+          <li>Redeem according to the current rules.</li>
+        </ol>
+
+        <p class="muted" style="margin-top:14px">
+          Reward points may have minimum redemption requirements and should not
+          automatically be treated as cash credited to your bank account.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="reuse">
+      <h2 class="section-title">🔄 Step 6: Reuse Your Wallet Balance</h2>
+
+      <div class="card">
+        <ol>
+          <li>Check whether PayZapp permits transferring your wallet balance to your own bank account.</li>
+          <li>Review any applicable fees, limits, and restrictions.</li>
+          <li>Reuse the balance only when the wallet's terms permit it.</li>
+          <li>Check transaction eligibility before repeating wallet reloads.</li>
+        </ol>
+
+        <div class="callout">
+          Never assume that every reload or transfer qualifies for rewards.
+          Confirm the applicable wallet and card terms first.
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="summary">
+      <h2 class="section-title">📌 Quick Checklist</h2>
+
+      <div class="card">
+        <ul class="checklist">
+          <li>Get your HDFC Millennia Debit Card.</li>
+          <li>Set up PayZapp and complete the required KYC.</li>
+          <li>Target ₹40,000 in eligible monthly transactions.</li>
+          <li>Check your reward points and redemption rules.</li>
+          <li>Verify quarterly lounge access eligibility.</li>
+          <li>Check fees and wallet transfer restrictions.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="questions">
+      <h2 class="section-title">💬 Have Questions?</h2>
+
+      <div class="card">
+        <p>
+          Have doubts about the setup, cashback, or lounge access?
+          Leave a comment on the Instagram reel.
+        </p>
+
+        <p style="margin-top:12px;font-weight:700;color:var(--accent)">
+          ❤️ Follow for more credit card, debit card, cashback,
+          and personal finance tips!
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="disclaimer">
+      <h2 class="section-title">⚠️ Disclaimer</h2>
+
+      <div class="warning">
+        This website is an independent educational guide and is not affiliated
+        with or endorsed by HDFC Bank. Fees, reward rates, transaction eligibility,
+        wallet features, redemption rules, and lounge benefits can change.
+        Please verify all details through official HDFC Bank channels before
+        making financial decisions. No cashback or lounge access is guaranteed.
+      </div>
+
+      <div style="margin-top:17px">
+        <p class="muted">Official resources:</p>
+        <p>
+          <a href="https://www.hdfcbank.com/"
+             target="_blank" rel="noopener noreferrer">
+            HDFC Bank Official Website ↗
+          </a>
+        </p>
+        <p>
+          <a href="https://www.hdfcbank.com/personal/payments/payzapp"
+             target="_blank" rel="noopener noreferrer">
+            HDFC PayZapp ↗
+          </a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-brand">💳 Millennia Debit Card Guide</div>
+      <p>Made to help you understand the setup process and card benefits.</p>
+      <p>Independent guide · For educational purposes only</p>
+    </div>
+  </footer>
+
+  <script>
+    const spendInput = document.getElementById("spend");
+    const rewardOutput = document.getElementById("reward");
+    const capOutput = document.getElementById("cap");
+
+    function updateCalculator() {
+      const spend = Math.max(0, Number(spendInput.value) || 0);
+      const estimatedReward = Math.min(spend * 0.01, 400);
+      const capUsed = Math.min((estimatedReward / 400) * 100, 100);
+
+      rewardOutput.textContent = estimatedReward.toLocaleString("en-IN", {
+        style: "currency",
+        currency: "INR",
+        maximumFractionDigits: 2
+      });
+
+      capOutput.textContent = capUsed.toFixed(0) + "%";
+    }
+
+    spendInput.addEventListener("input", updateCalculator);
+    updateCalculator();
+  </script>
+
+</body>
+</html>
